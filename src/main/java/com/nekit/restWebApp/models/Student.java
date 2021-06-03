@@ -16,6 +16,9 @@ public class Student implements Serializable {
     private String phone;
     private String imageUrl;
 
+    @Column(nullable = false, updatable = false)
+    private String employeeCode;
+
     public Student() {}
 
     public Student(Long id, String name, String email, String jobTitle, String phone, String imageUrl, String employeeCode) {
@@ -27,9 +30,6 @@ public class Student implements Serializable {
         this.imageUrl = imageUrl;
         this.employeeCode = employeeCode;
     }
-
-    @Column(nullable = false, updatable = false)
-    private String employeeCode;
 
     public Long getId() {
         return id;

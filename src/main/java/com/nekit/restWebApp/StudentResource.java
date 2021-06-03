@@ -4,6 +4,7 @@ import com.nekit.restWebApp.models.Student;
 import com.nekit.restWebApp.services.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,6 +42,7 @@ public class StudentResource {
         return new ResponseEntity<>(newStudent, HttpStatus.OK);
     }
 
+    @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> addStudent(@PathVariable("id") Long id) {
         studentService.deleteStudent(id);
